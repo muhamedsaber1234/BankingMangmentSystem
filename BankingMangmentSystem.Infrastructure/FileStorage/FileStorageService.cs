@@ -9,6 +9,7 @@ namespace BankingMangmentSystem.Infrastructure.FileStorage
     public class FileStorageService
     {
         readonly string  _basePath;
+
         public FileStorageService(string basePath)
         {
             if (basePath == null)

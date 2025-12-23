@@ -9,8 +9,8 @@ namespace BankingMangmentSystem.Domain.Entities
 {
     public class CheckingAccount : Account
     {
-        decimal OverdraftLimit{ get; set; }
-        decimal MonthlyFee { get; set; }
+        public decimal OverdraftLimit{ get; set; }
+        public decimal MonthlyFee { get; set; }
         public CheckingAccount(string id, string accnum, int customerID, Enums.AccountType.Type type = Enums.AccountType.Type.checking, int InitialDeposit = 0, decimal overdraftLimit = 500, decimal monthlyFee = 10) : base(id, accnum, customerID, type, InitialDeposit)
         {
             OverdraftLimit = overdraftLimit;

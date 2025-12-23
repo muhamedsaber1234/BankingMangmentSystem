@@ -18,7 +18,7 @@ namespace BankingMangmentSystem.Infrastructure.DataStores
             {
                 throw new ArgumentNullException(nameof(entity));
             }
-            if (_store.ContainsKey(entity.Id))
+            if (!_store.ContainsKey(entity.Id))
             {
                 if (_store.TryAdd(entity.Id, entity))
                     return 1;

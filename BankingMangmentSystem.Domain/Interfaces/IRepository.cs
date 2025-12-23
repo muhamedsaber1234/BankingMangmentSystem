@@ -8,9 +8,9 @@ namespace BankingMangmentSystem.Domain.Interfaces
 {
     public interface IRepository<Tentity> where Tentity : class
     {
-        void Add(Tentity entity);
-        void Update(Tentity entity);
-        void Delete(Tentity entity);
+        int Add(Tentity entity);
+        int Update(Tentity entity);
+        int Delete(object id);
         Tentity? GetById(object id);
         IEnumerable<Tentity> GetAll();
     }
