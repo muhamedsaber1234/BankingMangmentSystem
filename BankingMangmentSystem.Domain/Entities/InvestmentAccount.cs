@@ -13,7 +13,7 @@ namespace BankingMangmentSystem.Domain.Entities
         decimal RiskFactor { get; set; }
         decimal BaseInterestRate {  get; set; }
 
-        InvestmentAccount(decimal riskFactor, decimal baseInterestRate,string id,string accNum,int custID,Enums.AccountType.Type type,int deposit) :base(id, accNum, custID,type,deposit)
+        public InvestmentAccount(decimal riskFactor, decimal baseInterestRate,string id,string accNum,int custID,Enums.AccountType.Type type,int deposit) :base(id, accNum, custID,type,deposit)
         {
             RiskFactor = riskFactor;
             BaseInterestRate = baseInterestRate;

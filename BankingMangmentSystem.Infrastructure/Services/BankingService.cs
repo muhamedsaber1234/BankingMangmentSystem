@@ -8,6 +8,8 @@ using BankingMangmentSystem.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using static BankingMangmentSystem.Domain.Enums.UserPermissions;
@@ -58,11 +60,37 @@ namespace BankingMangmentSystem.Infrastructure.Services
         }
         public void CreateAccount(string customerId, AccountType.Type type, decimal initialDeposit = 0, string? accountNumberPrefix = null)
         {
-            var AccountToCheck = _accountRepository.GetById(customerId);
-            if (AccountToCheck != null && AccountToCheck.AccountType == type)
+           var customer = _customerRepository.GetById(customerId);
+
+            if (customer == null) 
             {
-                throw new BankingException($"you alre","duplicated_Account");
+                throw new BankingException($"user with account number {customerId} is not found","Customer_NOT_Found");
             }
+            string id  ;
+           if ( customer.HasPermission(UserPermission.deposit))
+            {
+              id =  GenerateAccountNumber();
+                Money money = new Money(initialDeposit);
+                switch (type)
+                {
+                    case AccountType.Type.Investment:
+
+                        InvestmentAccount acc = new InvestmentAccount(0,0,);
+                        break;
+                    case AccountType.Type.savings:
+
+                        SavingsAccount acc1 = new SavingsAccount();
+                        break;
+                    case AccountType.Type.checking:
+
+                        CheckingAccount acc2 = new CheckingAccount();
+                        break;
+                }
+            }
+        }
+        private string GenerateAccountNumber()
+        {
+            return new Guid().ToString();
         }
     }
 }

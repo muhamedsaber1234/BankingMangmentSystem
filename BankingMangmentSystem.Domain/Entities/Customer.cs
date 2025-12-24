@@ -51,16 +51,16 @@ namespace BankingMangmentSystem.Domain.Entities
             _accounts.Add(account);
             SetUpdatedAt();
         }
-        bool HasPermission(UserPermission permission)
+        public bool HasPermission(UserPermission permission)
         {
             return (Permissions & permission) == permission;
         }
-        void GrantPermission(UserPermission permission)
+        public void GrantPermission(UserPermission permission)
         {
             Permissions |= permission;
             SetUpdatedAt();
         }
-        void RevokePermission(UserPermission permission)
+        public void RevokePermission(UserPermission permission)
         {
             Permissions &= ~permission;
             SetUpdatedAt();
