@@ -9,7 +9,7 @@ namespace BankingMangmentSystem.Infrastructure.Repositories
     public abstract class Repository<T,TID> : Domain.Interfaces.IRepository<T>  where T : Domain.Entities.Entity<TID> where TID : notnull 
     {
         public int Count => _dataStore.Count;
-        private readonly Domain.Interfaces.IDataStore<T,TID> _dataStore;
+        private readonly  Domain.Interfaces.IDataStore<T,TID> _dataStore;
         public Repository(Domain.Interfaces.IDataStore<T,TID> dataStore)
         {
             _dataStore = dataStore ?? throw new ArgumentNullException (nameof(dataStore));

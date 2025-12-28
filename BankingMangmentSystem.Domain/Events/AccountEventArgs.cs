@@ -9,10 +9,10 @@ namespace BankingMangmentSystem.Domain.Events
 {
     public class AccountEventArgs : EventArgs
     {
-        string AccountNumber    { get; set; }
-        AccountStatus.Status OldStatus { get; set; }
-        AccountStatus.Status NewStatus { get; set; }
-        DateTime Timestamp      { get; set; }
+        public string AccountNumber    { get; set; }
+        public AccountStatus.Status OldStatus { get; set; }
+        public AccountStatus.Status NewStatus { get; set; }
+        public DateTime Timestamp      { get; set; }
         public AccountEventArgs(string accnum, AccountStatus.Status oldStatus, AccountStatus.Status newStatus)
         {
             AccountNumber= accnum;

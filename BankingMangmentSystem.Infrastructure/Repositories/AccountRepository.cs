@@ -36,7 +36,7 @@ namespace BankingMangmentSystem.Infrastructure.Repositories
         {
                        return GetAll().Where(x => x.Status.Equals( status));
         }
-        public IEnumerable<Account> GetByType(AccountType type)
+        public IEnumerable<Account> GetByType(AccountType.Type type)
         {
                        return GetAll().Where(x => x.AccountType.Equals(type));
         }
